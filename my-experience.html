@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome (add in the <head> section of your HTML) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <title>My Experience - Khant Khant Chaw</title>
+  <style>
+    :root {
+      --primary-light: #e3f2fd;
+      --accent-light: #2196f3;
+      --gray-light: #4a4a4a;
+      --bg-light: #f8f9fa;
+      --text-light: #333;
+
+      --primary-dark: #1e1e2f;
+      --accent-dark: #90caf9;
+      --gray-dark: #cccccc;
+      --bg-dark: #121212;
+      --text-dark: #f0f0f0;
+    }
+
+    [data-theme="light"] {
+      --primary: var(--primary-light);
+      --accent: var(--accent-light);
+      --gray: var(--gray-light);
+      --bg: var(--bg-light);
+      --text: var(--text-light);
+    }
+
+    [data-theme="dark"] {
+      --primary: var(--primary-dark);
+      --accent: var(--accent-dark);
+      --gray: var(--gray-dark);
+      --bg: var(--bg-dark);
+      --text: var(--text-dark);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar {
+      background-color: var(--primary);
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 998;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .theme-toggle {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 1rem;
+    }
+
+    .theme-toggle:hover {
+      background: #1976d2;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background-color: var(--primary);
+        padding-top: 5rem;
+        transition: left 0.3s ease-in-out;
+        z-index: 997;
+      }
+
+      .nav-links.active {
+        left: 0;
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 1rem 2rem;
+        border-bottom: 1px solid var(--bg);
+      }
+
+      .nav-links .theme-toggle {
+        margin: 1rem 2rem;
+        align-self: flex-start;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* space between icons */
+  margin-top: 20px;
+}
+
+.contact a {
+  font-size: 2rem;
+  margin: 0 15px;
+  color: var(--accent);
+  transition: color 0.3s;
+}
+
+.contact a:hover {
+  color: #00bcd4; /* or any accent color */
+}
+
+
+
+    h1, h2 {
+      color: var(--accent);
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .experience {
+      padding: 2rem;
+      margin: 2rem;
+      border-left: 4px solid var(--accent);
+      background-color: var(--primary);
+      transition: box-shadow 0.4s, border-color 0.3s;
+    }
+
+    @keyframes highlight {
+      0%   { box-shadow: 0 0 0px rgba(255, 215, 0, 0); }
+      50%  { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+      100% { box-shadow: 0 0 0px rgba(255, 215, 0, 0); }
+    }
+
+    .highlight {
+      animation: highlight 2s ease-in-out;
+      border-color: gold;
+    }
+
+
+    .highlight {
+      animation: highlightAnimation 3s ease forwards;
+      box-shadow: 0 0 15px 4px #1976d2;
+      border-radius: 8px;
+      background-color: #1976d2;
+    }
+
+    @keyframes highlightAnimation {
+      from { background-color: #1976d2; }
+      to { background-color: transparent; }
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR AT THE TOP -->
+  <nav class="navbar">
+    <div class="nav-logo">Khant Khant Chaw's</div>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="index.html"><u>Home</u></a>
+        <a href="#" ><u style="color: #1976d2;">Experiences</u></a>
+        <a href="#contact"><u>Contact</u></a>
+        <a href="cv.pdf"><u>CV From</u></a>
+      </div>
+      <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+      <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <h1>Experiences</h1>
+
+  <section class="experience" id="tax-planning">
+    <h2>SOFTWARE TECHNICAL CONSULTANT</h2>
+    <p><b>QNE Software Myanmar Company Limited (2023 - Present)</b></p>
+    <ul>
+      <li>Provide Customer Service</li>
+      <li>Communicate programmers with customers</li>
+      <li>Train new customers about QNE Software</li>
+      <li>Prepare invoice design</li>
+      <li>Handle customer complaints</li>
+  </section>
+
+  <section class="experience" id="financial-reporting">
+    <h2>ACCOUNTANT</h2>
+    <p><b>Htun Than and Associates Company Limited (2022)</b></p>
+    <ul>
+      <li>Maintain general ledger and cash book</li>
+      <li>Prepare and submitting SAS annual and quarterly returns to Internal Revenue Department</li>
+      <li>Review accounting procedures of clients</li>
+      <li>Maintain store ledger accounts</li>
+      <li>Perform general office duties</li>  
+    </ul>
+  </section>
+
+  <section class="experience" id="audit-support">
+    <h2>JUNIOR AUDITOR</h2>
+    <p><b>TZVA Firm (2020 - 2022)</b></p>
+    <ul>
+      <li>Inspect invoices</li>
+      <li>Prepare accurate, timely financial reports</li>
+      <li>Review and assess financial statements of clients to ensure accuracy</li>
+      <li>Submit SAS Return</li>
+      <li>Provide tax services</li>  
+    </ul>    
+  </section>
+
+  <section class="experience" id="MANAGEMENT-TRAINEE">
+    <h2>MANAGEMENT TRAINEE</h2>
+    <p><b>uab bank Limited (2019)</b></p>
+    <ul>
+      <li>Assist in preparing UAB Website</li>
+      <li>Prepare SOP for complaints</li>
+      <li>Help in developing concepts in UAB products</li>
+      <li>Generate ideas for social media marketing</li>
+      <li>Prepare meeting minutes</li>
+      <li>Assist in events planning and organizing</li>   
+    </ul>       
+  </section>
+
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact">
+    <a href="mailto:kkchaw2000@gmail.com" title="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/khant-khant-chaw-2a673331a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="tel:+959795834047" title="Call">
+      <i class="fas fa-phone"></i>
+    </a>
+  </div>
+</section>
+
+  <script>
+      // Force scroll to top on reload
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  } else {
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+  }
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute("data-theme");
+      const btn = document.getElementById("themeBtn");
+
+      if (current === "dark") {
+        html.setAttribute("data-theme", "light");
+        btn.textContent = "🌤 Light";
+      } else {
+        html.setAttribute("data-theme", "dark");
+        btn.textContent = "🌙 Dark";
+      }
+    }
+
+    function toggleNav() {
+      const navLinks = document.getElementById('navLinks');
+      const themeBtn = document.getElementById('themeBtn');
+
+      navLinks.classList.toggle('active');
+
+      if (window.innerWidth <= 768) {
+        if (!navLinks.contains(themeBtn)) {
+          navLinks.appendChild(themeBtn);
+        } else {
+          document.querySelector('.nav-right').insertBefore(themeBtn, document.querySelector('.nav-toggle'));
+        }
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const hash = window.location.hash;
+      const current = document.documentElement.getAttribute("data-theme");
+      const btn = document.getElementById("themeBtn");
+      btn.textContent = current === "dark" ? "🌙 Dark" : "🌤 Light";
+
+      if (hash) {
+        const target = document.querySelector(hash);
+        if (target) {
+          target.classList.add("highlight");
+          target.scrollIntoView({ behavior: "smooth", block: "center" });
+          setTimeout(() => {
+            target.classList.remove("highlight");
+          }, 2000);
+        }
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const targetSection = document.querySelector(hash);
+      if (targetSection) {
+        // Scroll smoothly (optional, browser usually does it by default)
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Add highlight class
+        targetSection.classList.add('highlight');
+
+        // Remove highlight after 3 seconds (animation duration)
+        setTimeout(() => {
+          targetSection.classList.remove('highlight');
+        }, 3000);
+      }
+    }
+  });
+
+  // Load theme from localStorage on page load
+window.onload = () => {
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  document.documentElement.setAttribute("data-theme", savedTheme);
+
+  const btn = document.getElementById("themeBtn");
+  btn.textContent = savedTheme === "dark" ? "🌙 Dark" : "🌤 Light";
+
+  // Scroll to anchor if any, then remove hash
+  const hash = window.location.hash;
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+      target.classList.add("highlight");
+      setTimeout(() => target.classList.remove("highlight"), 3000);
+
+      // Remove the hash from URL without reloading
+      history.replaceState(null, null, window.location.pathname);
+    }
+  }
+};
+
+// Theme toggle with localStorage update
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute("data-theme");
+  const btn = document.getElementById("themeBtn");
+
+  const newTheme = current === "dark" ? "light" : "dark";
+  html.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+
+  btn.textContent = newTheme === "dark" ? "🌙 Dark" : "🌤 Light";
+}
+
+  </script>
+
+</body>
+</html>
